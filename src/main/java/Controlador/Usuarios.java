@@ -32,31 +32,55 @@ public class Usuarios extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		UsuarioDAO uDAO = new UsuarioDAO();
 		if(request.getParameter("crear")!=null) {
-			String cedula, nombre, correo, pass, user;
+			String cedula, nombre, correo, user, pass;
 			cedula = request.getParameter("cedula");
 			nombre = request.getParameter("nombre");
 			correo = request.getParameter("correo");
 			pass = request.getParameter("pass");
 			user = request.getParameter("user");
-			UsuarioDTO uDTO = new UsuarioDTO(cedula, nombre, correo, pass, user);
-			if(uDAO.insertarUsuario(uDTO)) {
+			UsuarioDTO uDTO = new UsuarioDTO(cedula, nombre, correo, user, pass);
+			if(uDAO.crearUsuario(uDTO)) {
 				//JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
 				response.sendRedirect("Usuarios.jsp?mensaje=Usuario creado exitosamente");
 			}else {
 				//JOptionPane.showMessageDialog(null, "No se pudo crear el usuario");
-				response.sendRedirect("Usuarios.jsp?mensaje=No se pudo crear el usuario");
+				response.sendRedirect("Usuarios.jsp?mensaje=Error al crear el usuario");
 			}
-		}
-		if(request.getParameter("consultar")!= null) {
-			String cedula = request.getParameter("cedula");
-			UsuarioDTO userDTO = uDAO.buscarUsuario(cedula);
-			String nombre, correo, pass, user;
-			cedula = userDTO.getCedula_usuario();
-			nombre = userDTO.getNombre_usuario();
-			correo = userDTO.getEmail_usuario();
-			pass = userDTO.getPassword();
-			user = userDTO.getUsuario();
-			response.sendRedirect("Usuario.jsp?cedula="+cedula+"&&nombre="+nombre+"&&correo="+pass+"&&user="+user);
+		}else if(request.getParameter("consultar")!= null) {
+			String cedula = request.getParameter("id");
+			UsuarioDTO uDTO = uDAO.consultarUsuario(cedula);
+			if(uDTO!=null) {
+				String nombre, correo, user, pass;
+				cedula = uDTO.getCedula_usuario();
+				nombre = uDTO.getNombre_usuario();
+				correo = uDTO.getEmail_usuario();
+				user = uDTO.getUsuario();
+				pass = uDTO.getPassword();
+				response.sendRedirect("Usuario.jsp?cedula="+cedula+"&&nombre="+nombre+"&&correo="+correo+"&&user="+user+"&&pass="+pass);
+			}else {
+				JOptionPane.showMessageDialog(null, "El usuario no existe");
+				response.sendRedirect("Usuarios.jsp");
+			}
+		}else if(request.getParameter("actualizar")!=null) {
+			String cedula, nombre, correo, user, pass;
+			cedula = request.getParameter("id");//NOTA: se utiliza esta variable ya que se deshabilito el input "cedula" del Usuarios.jsp
+			nombre = request.getParameter("nombre");
+			correo = request.getParameter("correo");
+			pass = request.getParameter("pass");
+			user = request.getParameter("user");
+			UsuarioDTO uDTO = new UsuarioDTO(cedula, nombre, correo, user, pass);
+			if(uDAO.actualizarUsuario(uDTO)) {
+				response.sendRedirect("Usuarios.jsp?mensaje=Usuario actualizado exitosamente");
+			}else {
+				response.sendRedirect("Usuarios.jsp?mensaje=Error al actualizar el usuario");
+			}
+		}else if(request.getParameter("eliminar")!=null) {
+			String cedula = request.getParameter("id");			
+			if(uDAO.eliminarUsuario(cedula)) {
+				response.sendRedirect("Usuarios.jsp?mensaje=Usuario eliminado exitosamente");
+			}else {
+				response.sendRedirect("Usuarios.jsp?mensaje=Cedula de usuario no existe");
+			}
 		}
 	}
 }

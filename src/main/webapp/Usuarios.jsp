@@ -8,18 +8,18 @@
 <link rel="stylesheet" href="css/estilosUsuarios.css">
 </head>
 <body>
-<%if(request.getParameter("mensaje")!=null){
-	String mensaje = request.getParameter("mensaje");
-	out.print("<script>alert('"+mensaje+"');</script>");}%>
-	
-<%!String cedula=""; String nombre="", correo="", pass="", user="";%>
+<%!String cedula=""; String nombre="", correo="", pass="", user="", estado="";%>
 
-<%if(request.getParameter("cedula")!=null){
+<%
+if(request.getParameter("cedula")!=null){
 	cedula = request.getParameter("cedula");
 	nombre = request.getParameter("nombre");
 	correo = request.getParameter("correo");
 	pass = request.getParameter("pass");
-	user = request.getParameter("user");}%>
+	user = request.getParameter("user");
+	estado= "disabled";
+}
+%>
 	
 <div class="titulo">
         <h1>Tienda Generica</h1>
@@ -58,7 +58,8 @@
                     <label for="">Correo Electronico</label>
                 </div>
                 <div>
-                    <input type="number" name="cedula" value="<%=cedula%>">
+                    <input type="text" name="cedula" value="<%=cedula%>" <%=estado%>>
+                    <input type="hidden" name="id" value="<%=cedula%>">
                     <input type="text" name="nombre" value="<%=nombre%>">
                     <input type="email" name="correo" value="<%=correo%>">
                 </div>
@@ -79,5 +80,11 @@
             </div>
         </form>
     </div>
+<%
+if(request.getParameter("mensaje")!=null){
+	String mensaje = request.getParameter("mensaje");
+	out.print("<script>alert('"+mensaje+"');</script>");	
+}
+%>
 </body>
 </html>
