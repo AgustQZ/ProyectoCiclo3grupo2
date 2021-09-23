@@ -21,8 +21,8 @@ public class UsuarioDAO {
 			String insertar = "insert into usuarios values (?,?,?,?,?)";
 			ps = con.prepareStatement(insertar);
 			ps.setString(1, uDTO.getCedula_usuario());			
-			ps.setString(2, uDTO.getNombre_usuario());
-			ps.setString(3, uDTO.getEmail_usuario());
+			ps.setString(2, uDTO.getEmail_usuario());
+			ps.setString(3, uDTO.getNombre_usuario());
 			ps.setString(4, uDTO.getUsuario());
 			ps.setString(5, uDTO.getPassword());
 			resultado = ps.executeUpdate()>0;			

@@ -34,11 +34,11 @@ public class Usuarios extends HttpServlet {
 		if(request.getParameter("crear")!=null) {
 			String cedula, nombre, correo, user, pass;
 			cedula = request.getParameter("cedula");
-			nombre = request.getParameter("nombre");
 			correo = request.getParameter("correo");
+			nombre = request.getParameter("nombre");
 			pass = request.getParameter("pass");
 			user = request.getParameter("user");
-			UsuarioDTO uDTO = new UsuarioDTO(cedula, nombre, correo, user, pass);
+			UsuarioDTO uDTO = new UsuarioDTO(cedula, correo,nombre, user, pass);
 			if(uDAO.crearUsuario(uDTO)) {
 				//JOptionPane.showMessageDialog(null, "Usuario creado exitosamente");
 				response.sendRedirect("Usuarios.jsp?mensaje=Usuario creado exitosamente");
@@ -47,16 +47,16 @@ public class Usuarios extends HttpServlet {
 				response.sendRedirect("Usuarios.jsp?mensaje=Error al crear el usuario");
 			}
 		}else if(request.getParameter("consultar")!= null) {
-			String cedula = request.getParameter("id");
+			String cedula = request.getParameter("cedula");
 			UsuarioDTO uDTO = uDAO.consultarUsuario(cedula);
 			if(uDTO!=null) {
 				String nombre, correo, user, pass;
 				cedula = uDTO.getCedula_usuario();
-				nombre = uDTO.getNombre_usuario();
 				correo = uDTO.getEmail_usuario();
+				nombre = uDTO.getNombre_usuario();
 				user = uDTO.getUsuario();
 				pass = uDTO.getPassword();
-				response.sendRedirect("Usuario.jsp?cedula="+cedula+"&&nombre="+nombre+"&&correo="+correo+"&&user="+user+"&&pass="+pass);
+				response.sendRedirect("Usuarios.jsp?cedula="+cedula+"&&correo="+correo+"&&nombre="+nombre+"&&user="+user+"&&pass="+pass);
 			}else {
 				JOptionPane.showMessageDialog(null, "El usuario no existe");
 				response.sendRedirect("Usuarios.jsp");

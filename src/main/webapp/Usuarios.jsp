@@ -13,8 +13,8 @@
 <%
 if(request.getParameter("cedula")!=null){
 	cedula = request.getParameter("cedula");
-	nombre = request.getParameter("nombre");
 	correo = request.getParameter("correo");
+	nombre = request.getParameter("nombre");
 	pass = request.getParameter("pass");
 	user = request.getParameter("user");
 	estado= "disabled";
