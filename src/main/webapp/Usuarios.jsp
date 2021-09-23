@@ -47,8 +47,8 @@ if(request.getParameter("cedula")!=null){
 				<div>
 					<input type="text" name="cedula" value="<%=cedula%>" <%=estado%>>
 					<input type="hidden" name="id" value="<%=cedula%>"> <input
-						type="text" name="nombre" value="<%=nombre%>"> <input
-						type="email" name="correo" value="<%=correo%>">
+						type="text" name="nombre" value="<%=correo%>"> <input
+						type="email" name="correo" value="<%=nombre%>">
 				</div>
 				<div>
 					<label for="">Usuario</label> <label for="">Contraseña</label>

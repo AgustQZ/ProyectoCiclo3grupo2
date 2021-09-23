@@ -51,7 +51,7 @@ public class UsuarioDAO {
 	public boolean actualizarUsuario(UsuarioDTO uDTO) {
 		boolean resultado = false;
 		try {
-			String insertar = "update usuarios set nombre_usuario=?, email_usuario=?, user=?, pass=? where cedula_usuario=?";
+			String insertar = "update usuarios set nombre_usuario=?, email_usuario=?, usuario=?, contraseña=? where cedula_usuario=?";
 			ps = con.prepareStatement(insertar);
 			ps.setString(1, uDTO.getNombre_usuario());
 			ps.setString(2, uDTO.getEmail_usuario());
@@ -68,7 +68,7 @@ public class UsuarioDAO {
 	public boolean eliminarUsuario(String cedula) {
 		boolean resultado = false;
 		try {
-			String eliminar = "delete from usuarios where cedula_usuarios=?";
+			String eliminar = "delete from usuarios where cedula_usuario=?";
 			ps = con.prepareStatement(eliminar);
 			ps.setString(1, cedula);
 			resultado = ps.executeUpdate()>0;
