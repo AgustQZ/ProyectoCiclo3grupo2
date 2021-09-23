@@ -7,10 +7,10 @@ import java.sql.SQLException;
 import javax.swing.JOptionPane;
 
 public class ConexionSQL {
-	private String dataBase = "tienda_generica";
+	private String dataBase = "tiendagenerica";
 	private String url = "jdbc:mysql://localhost:3306/"+dataBase;
 	private String user = "root";
-	private String pass = "SanagustinSQL.";
+	private String pass = "Mick2019nuevo";
 	
 	Connection conexion= null;
 	

@@ -4,22 +4,26 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Usuarios</title>
+<title>Clientes</title>
 <link rel="stylesheet" href="css/estilosUsuarios.css">
 </head>
 <body>
-<%!String cedula=""; String nombre="", correo="", pass="", user="", estado="";%>
+
+<!-- creación de String globales -->
+<%!String cedula=""; String nombre="", correo="", direccion="", telefono="", estado="";%>
 
 <%
+
 if(request.getParameter("cedula")!=null){
 	cedula = request.getParameter("cedula");
-	nombre = request.getParameter("nombre");
+	direccion = request.getParameter("direccion");
 	correo = request.getParameter("correo");
-	pass = request.getParameter("pass");
-	user = request.getParameter("user");
+	nombre = request.getParameter("nombre");
+	telefono = request.getParameter("telefono");
 	estado= "disabled";
 }
 %>
+
 	
 <div class="titulo">
         <h1>Tienda Generica</h1>
@@ -59,17 +63,17 @@ if(request.getParameter("cedula")!=null){
                 </div>
                 <div>
                     <input type="text" name="cedula" value="<%=cedula%>" <%=estado%>>
-                    <input type="hidden" name="id" value="<%=cedula%>">
+                    <input type="hidden" name="code" value="<%=cedula%>">
                     <input type="text" name="nombre" value="<%=nombre%>">
-                    <input type="email" name="correo" value="<%=correo%>">
+                    <input type="email" name="email" value="<%=correo%>">
                 </div>
                 <div>
                     <label for="">Direccion</label>
                     <label for="">Telefono</label>
                 </div>
                 <div>
-                    <input type="text" name="user" value="<%=user%>">
-                    <input type="text" name="pass" value="<%=pass%>">
+                    <input type="text" name="telefono" value="<%=telefono%>">
+                    <input type="text" name="direccion" value="<%=direccion%>">
                 </div>
             </div>
             <div class="contenedorBotones">
@@ -80,11 +84,15 @@ if(request.getParameter("cedula")!=null){
             </div>
         </form>
     </div>
+    
+    
+   <!--muestra de mensaje  de error por script -->
 <%
 if(request.getParameter("mensaje")!=null){
 	String mensaje = request.getParameter("mensaje");
 	out.print("<script>alert('"+mensaje+"');</script>");	
 }
 %>
+
 </body>
 </html>

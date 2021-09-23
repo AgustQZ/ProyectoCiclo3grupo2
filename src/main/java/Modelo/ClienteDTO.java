@@ -12,13 +12,13 @@ public class ClienteDTO {
 	 * @return
 	 */
 	
-	public ClienteDTO(String nombre_cliente, String cedula_cliente, String email_cliente, String direccion_cliente,
+	public ClienteDTO( String cedula_cliente, String direccion_cliente, String email_cliente,String nombre_cliente,
 			String telefono_cliente) {
-		super();
-		this.nombre_cliente = nombre_cliente;
+		
 		this.cedula_cliente = cedula_cliente;
-		this.email_cliente = email_cliente;
 		this.direccion_cliente = direccion_cliente;
+		this.email_cliente = email_cliente;
+		this.nombre_cliente = nombre_cliente;
 		this.telefono_cliente = telefono_cliente;
 	}
 	
