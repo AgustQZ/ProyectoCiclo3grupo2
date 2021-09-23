@@ -72,5 +72,29 @@ public class ClienteDAO {
 	
 	
 	
+	public boolean actualizarUsuario(ClienteDTO cliente) {
+		
+		boolean resultado = false;
+		
+		String actualizar = "update clientes set direccion_cliente=?, email_cliente=?, nombre_cliente=?, telefo_cliente=? where cedula_clientes=?";
+		
+		try {
+			re = conect.prepareStatement(actualizar);
+			re.setString(1,cliente.getDireccion_cliente() );
+			re.setString(2, cliente.getEmail_cliente());
+			re.setString(3, cliente.getNombre_cliente());
+			re.setString(4, cliente.getTelefono_cliente());
+			re.setString(5, cliente.getCedula_cliente());
+			resultado= re.executeUpdate()> 0;
+			
+			
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null,"Error al actualizar el cliente"+ e);
+		}
+		
+		
+		return resultado;
+	}
+	
 
 }

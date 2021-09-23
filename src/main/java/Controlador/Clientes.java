@@ -66,7 +66,11 @@ public class Clientes extends HttpServlet {
 			
 		}
 		
+		
+		
 		if(request.getParameter("consultar") != null) {
+			
+			//consultar usuario
 			
 			String cedula = request.getParameter("cedula");
 			ClienteDTO cliente = clienteDAO.consultarCliente(cedula);
@@ -84,6 +88,29 @@ public class Clientes extends HttpServlet {
 				response.sendRedirect("Clientes.jsp?mensaje=Error al consultar usuario");
 				response.sendRedirect("Cliente.jsp");
 			}
+		
+		}
+		
+		else if(request.getParameter("actualizar") != null) {
+			
+			String cedula,direccion,correo,nombre,telefono;
+			
+			cedula = request.getParameter("code");
+			direccion = request.getParameter("direccion");
+			correo = request.getParameter("email");
+			nombre = request.getParameter("nombre");
+			telefono = request.getParameter("telefono");
+			
+			ClienteDTO  cliente = new ClienteDTO(cedula,direccion,correo,nombre,telefono);
+			
+			if(clienteDAO.actualizarUsuario(cliente)) {
+				response.sendRedirect("Cliente.jsp?mensaje=Usuario actualizado exitosamente");
+			}else {
+				response.sendRedirect("Cliente.jsp?mensaje=Usuario  no actualizado");
+				response.sendRedirect("Cliente.jsp");
+			}
+			
+		
 		}
 	}
 

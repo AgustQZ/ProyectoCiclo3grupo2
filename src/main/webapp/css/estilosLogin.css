@@ -1,75 +1,76 @@
 @charset "ISO-8859-1";
+
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 body {
-    font-family: calibri, sans serif;
+	font-family: calibri, sans serif;
 }
 
 h1 {
-    text-align: center;
-    margin-top: 70px;
-    color: gray;
-    font-size: 32px;
-    font-weight: normal;
+	text-align: center;
+	margin-top: 70px;
+	color: gray;
+	font-size: 32px;
+	font-weight: normal;
 }
 
 .contenedor01 {
-    width: 600px;
-    margin: auto;
-    padding: 50px;
+	width: 600px;
+	margin: auto;
+	padding: 50px;
 }
 
 .contenedorIN {
-    display: flex;
-    width: 450px;
-    margin: auto;
-    padding-right: 60px;
+	display: flex;
+	width: 450px;
+	margin: auto;
+	padding-right: 60px;
 }
 
 .contenedorIN div {
-    width: 50%;
+	width: 50%;
 }
 
 .contenedorIN label {
-    display: block;
-    margin-top: 30px;
-    margin-right: 20px;
-    font-size: 20px;
-    text-align: right;
-    color: gray;
+	display: block;
+	margin-top: 30px;
+	margin-right: 20px;
+	font-size: 20px;
+	text-align: right;
+	color: gray;
 }
 
 .contenedorIN input {
-    display: block;
-    margin-top: 30px;
-    width: 95%;
-    font-size: 20px;
+	display: block;
+	margin-top: 30px;
+	width: 95%;
+	font-size: 20px;
 }
 
 .contenedorBotones {
-    margin: auto;
-    width: 450px;
-    display: flex;
-    justify-content: center;
+	margin: auto;
+	width: 450px;
+	display: flex;
+	justify-content: center;
 }
 
 .contenedorBotones input {
-    width: 150px;
-    height: 40px;
-    font-family: calibri;
-    font-size: 20px;
-    background-color: darkgray;
-    color: white;
-    border-radius: 5px;
-    margin: 55px 10px 0 10px;
-    border: none;
+	width: 150px;
+	height: 40px;
+	font-family: calibri;
+	font-size: 20px;
+	background-color: darkgray;
+	color: white;
+	border-radius: 5px;
+	margin: 55px 10px 0 10px;
+	border: none;
 }
 
 .contenedorBotones input:hover {
-    background-color: rgb(149, 149, 149);
-    color: rgb(100, 100, 100);
+	background-color: rgb(149, 149, 149);
+	color: rgb(100, 100, 100);
 }
