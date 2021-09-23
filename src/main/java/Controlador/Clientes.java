@@ -112,6 +112,16 @@ public class Clientes extends HttpServlet {
 			
 		
 		}
+		
+		else if (request.getParameter("eliminar")!= null) {
+			String cedula = request.getParameter("code");
+			if(clienteDAO.eliminarUsuario(cedula)) {
+				response.sendRedirect("Cliente.jsp?mensaje=Usuario eliminado exitosamente");
+			}else {
+				response.sendRedirect("Cliente.jsp?mensaje=Usuario  no eliminado");
+				response.sendRedirect("Cliente.jsp");
+			}
+		}
 	}
 
 }

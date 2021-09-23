@@ -70,7 +70,11 @@ public class ClienteDAO {
 		
 	}
 	
-	
+	/**
+	 * 
+	 * @param cliente
+	 * @return resultado
+	 */
 	
 	public boolean actualizarUsuario(ClienteDTO cliente) {
 		
@@ -96,5 +100,21 @@ public class ClienteDAO {
 		return resultado;
 	}
 	
+	public boolean eliminarUsuario(String cedula) {
+		boolean resultado = false;
+		
+		String eliminar = "delete from clientes where cedula_clientes=? ";
+		
+		try {
+			re=conect.prepareStatement(eliminar);
+			re.setString(1, cedula);
+			resultado = re.executeUpdate()>0;
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, "Error al eliminar el cliente"+e);
+		}
+		
+		
+		return resultado;
+	}
 
 }
