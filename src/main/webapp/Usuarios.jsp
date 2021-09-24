@@ -18,7 +18,12 @@ if(request.getParameter("cedula")!=null){
 	pass = request.getParameter("pass");
 	user = request.getParameter("user");
 	estado= "disabled";
+	
+
 }
+	
+
+
 %>
 
 	<div class="titulo">
@@ -27,7 +32,7 @@ if(request.getParameter("cedula")!=null){
 	<header>
 		<nav>
 			<ul>
-				<li><a href="#">Usuarios</a></li>
+				<li><a href="Usuarios.jsp">Usuarios</a></li>
 				<li><a href="#">Clientes</a></li>
 				<li><a href="# ">Proveedores</a></li>
 				<li><a href="# ">Productos</a></li>
@@ -47,8 +52,8 @@ if(request.getParameter("cedula")!=null){
 				<div>
 					<input type="text" name="cedula" value="<%=cedula%>" <%=estado%>>
 					<input type="hidden" name="id" value="<%=cedula%>"> <input
-						type="text" name="nombre" value="<%=correo%>"> <input
-						type="email" name="correo" value="<%=nombre%>">
+						type="text" name="nombre" value="<%=nombre%>"> <input
+						type="email" name="correo" value="<%=correo%>">
 				</div>
 				<div>
 					<label for="">Usuario</label> <label for="">Contraseña</label>
@@ -59,10 +64,11 @@ if(request.getParameter("cedula")!=null){
 				</div>
 			</div>
 			<div class="contenedorBotones">
-				<input type="submit" name="crear" value="Crear"> <input
-					type="submit" name="consultar" value="Consultar"> <input
-					type="submit" name="actualizar" value="Actualizar"> <input
-					type="submit" name="eliminar" value="Eliminar">
+				<input type="submit" name="crear" value="Crear"> 
+				<input type="submit" name="consultar" value="Consultar"> 
+					<input type="submit" name="actualizar" value="Actualizar"> 
+					<input	type="submit" name="eliminar" value="Eliminar">
+					<input type="submit" name="limpiar" value="Limpiar">
 			</div>
 		</form>
 	</div>

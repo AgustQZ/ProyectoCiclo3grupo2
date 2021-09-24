@@ -122,6 +122,19 @@ public class Clientes extends HttpServlet {
 				response.sendRedirect("Cliente.jsp");
 			}
 		}
+		
+else if(request.getParameter("limpiar") != null) {
+			
+			String cedula,nombre, correo, direccion, telefono,estado;
+			cedula = "";
+			nombre = "";
+			correo = "";
+			direccion = "";
+			telefono = "";
+			response.sendRedirect("Cliente.jsp?cedula="+cedula+"&&direccion="+direccion+"&&email="+correo+"&&nombre="+nombre+"&&telefono="+telefono);
+			
+		}
+		
 	}
 
 }

@@ -82,5 +82,19 @@ public class Usuarios extends HttpServlet {
 				response.sendRedirect("Usuarios.jsp?mensaje=Cedula de usuario no existe");
 			}
 		}
+		
+		else if(request.getParameter("limpiar") != null) {
+			
+			String cedula,nombre, correo, user, pass,estado;
+			cedula = "";
+			correo ="";
+			nombre ="";
+			user = "";
+			pass ="";
+			estado = "";
+			response.sendRedirect("Usuarios.jsp?cedula="+cedula+"&&correo="+correo+"&&nombre="+nombre+"&&user="+user+"&&pass="+pass);
+
+			
+		}
 	}
 }
