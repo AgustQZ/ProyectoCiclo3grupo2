@@ -32,9 +32,15 @@ if(request.getParameter("cedula")!=null){
 	<header>
 		<nav>
 			<ul>
-				<li><a href="Usuarios.jsp">Usuarios</a></li>
-				<li><a href="#">Clientes</a></li>
-				<li><a href="# ">Proveedores</a></li>
+				<li>
+                    <a href="Usuarios.jsp">Usuarios</a>
+                </li>
+                <li>
+                    <a href="Cliente.jsp">Clientes</a>
+                </li>
+                <li>
+                    <a href="Proveedores.jsp">Proveedores</a>
+                </li>
 				<li><a href="# ">Productos</a></li>
 				<li><a href="# ">Ventas</a></li>
 				<li><a href="# ">Reportes</a></li>

@@ -4,23 +4,24 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Clientes</title>
+<title>Proveedores</title>
 <link rel="stylesheet" href="css/estilosUsuarios.css">
+
 </head>
 <body>
-
 <!-- creación de String globales -->
-<%!String cedula=""; String nombre="", correo="", direccion="", telefono="", estado="";%>
+<%!int nit=0; String nombre="", ciudad="", direccion="", telefono="", estado="";%>
 
 <%
 
-if(request.getParameter("cedula")!=null){
-	cedula = request.getParameter("cedula");
+if(request.getParameter("nit")!=null){
+	nit = Integer.parseInt(request.getParameter("nit"));
 	nombre = request.getParameter("nombre");
-	correo = request.getParameter("email");
-	direccion = request.getParameter("direccion");
+	direccion= request.getParameter("direccion");
 	telefono = request.getParameter("telefono");
-	estado= "disabled";
+	ciudad = request.getParameter("ciudad");
+	/* estado= "disabled"; */
+	estado = request.getParameter("estado");
 }
 %>
 
@@ -41,7 +42,7 @@ if(request.getParameter("cedula")!=null){
                     <a href="Proveedores.jsp">Proveedores</a>
                 </li>
                 <li>
-                    <a href="#">Productos</a>
+                    <a href="# ">Productos</a>
                 </li>
                 <li>
                     <a href="# ">Ventas</a>
@@ -54,26 +55,26 @@ if(request.getParameter("cedula")!=null){
     </header>
 
     <div class="contendor-fluid">
-        <form action="Clientes" method="post">
+        <form action="Proveedores" method="post">
             <div class="contenedorIN">
                 <div>
-                    <label for="">Cedula</label>
+                    <label for="">Nit</label>
                     <label for="">Nombre Completo</label>
-                    <label for="">Correo Electronico</label>
-                </div>
-                <div>
-                    <input type="text" name="cedula" value="<%=cedula%>" <%=estado%>>
-                    <input type="hidden" name="code" value="<%=cedula%>">
-                    <input type="text" name="nombre" value="<%=nombre%>">
-                    <input type="email" name="email" value="<%=correo%>">
-                </div>
-                <div>
                     <label for="">Direccion</label>
+                </div>
+                <div>
+                    <input type="text" name="nit" value="<%=nit%>" <%=estado%>>
+                    <input type="hidden" name="code" value="<%=nit%>">
+                    <input type="text" name="nombre" value="<%=nombre%>">
+                    <input type="text" name="direccion" value="<%=direccion%>">
+                </div>
+                <div>
                     <label for="">Telefono</label>
+                    <label for="">Ciudad</label>
                 </div>
                 <div>
                     <input type="text" name="telefono" value="<%=telefono%>">
-                    <input type="text" name="direccion" value="<%=direccion%>">
+                    <input type="text" name="ciudad" value="<%=ciudad%>">
                 </div>
             </div>
             <div class="contenedorBotones">
@@ -94,6 +95,5 @@ if(request.getParameter("mensaje")!=null){
 	out.print("<script>alert('"+mensaje+"');</script>");	
 }
 %>
-
 </body>
 </html>

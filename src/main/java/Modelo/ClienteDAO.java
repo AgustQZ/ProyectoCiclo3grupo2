@@ -34,10 +34,11 @@ public class ClienteDAO {
 		try {
 			re = conect.prepareStatement(ingresar);
 			re.setString(1, cliente.getCedula_cliente());
-		re.setString(2, cliente.getDireccion_cliente());
-		re.setString(3, cliente.getEmail_cliente());
-		re.setString(4, cliente.getNombre_cliente());
-		re.setString(5, cliente.getTelefono_cliente());
+			re.setString(4, cliente.getNombre_cliente());
+			re.setString(3, cliente.getEmail_cliente());
+		
+			re.setString(2, cliente.getDireccion_cliente());
+			re.setString(5, cliente.getTelefono_cliente());
 		//carga de información en data base//
 		bool = re.executeUpdate()>0;
 		

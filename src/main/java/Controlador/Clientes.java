@@ -49,7 +49,7 @@ public class Clientes extends HttpServlet {
 			
 			//creacion de clienteDTO paso de informacion para crear un nuevo cliente//
 			
-			ClienteDTO cliente = new ClienteDTO(nombre, cedula, email, direccion, telefono );
+			ClienteDTO cliente = new ClienteDTO(cedula, nombre, email, direccion, telefono );
 			
 			//ingreso del nuevo cliente a la base de datos//
 			
@@ -57,10 +57,10 @@ public class Clientes extends HttpServlet {
 				
 				//muestra del mensaje en la página html de creacion o de error//
 				
-				response.sendRedirect("Clientes.jsp?mensaje=Usuario creado exitosamente");
+				response.sendRedirect("Cliente.jsp?mensaje=Usuario creado exitosamente");
 										
 			} else {
-				response.sendRedirect("Clientes.jsp?mensaje=Error al crear usuario");
+				response.sendRedirect("Cliente.jsp?mensaje=Error al crear usuario");
 			}
 			
 			
