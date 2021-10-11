@@ -25,10 +25,12 @@
 	
 	<%! String nombre ="" , cedula="", codigoUno="", productoUno="",precioUno="",productoDos="",precioDos="",codigoDos="",
 	
-	productoTres="", precioTres="", codigoTres="", cantidadUno="",cantidadDos="",cantidadTres="";
+	productoTres="", precioTres="", codigoTres="", cantidadUno="",cantidadDos="",cantidadTres="",totalVenta="",
+	
+	totalIva="", total="", consecutivo = "";
 	
 	
-	int precioU=0;
+	
 	%>
 	
 	<%
@@ -72,7 +74,12 @@ if(request.getParameter("codigoTres")!= null){
 	}
 
 
-	
+totalVenta = request.getParameter("totalVenta");
+totalIva = request.getParameter("totalIva");
+total = request.getParameter("total");
+consecutivo = request.getParameter("consecutivo");
+
+
 	
 
 	%>
@@ -92,7 +99,7 @@ if(request.getParameter("codigoTres")!= null){
 				 <input type="text" name="cliente"placeholder="nombre del cliente" value="<%=nombre%>"> 
 					
 				<label for="">consecutivo</label> <input type="text" name="consecutivo"
-					value="Consecutivo">
+					value="<%=consecutivo %>">
 
 			</div>
 			<div class="contenedorProductos">
@@ -174,7 +181,7 @@ if(request.getParameter("codigoTres")!= null){
 					<label>Total de venta</label>
 				</div>
 				<div>
-					<input type="text" name="totalVenta" value=<%=precioU %>>
+					<input type="text" name="totalVenta" value=<%=totalVenta%>>
 				</div>
 				<div>
 					<label></label>
@@ -190,7 +197,7 @@ if(request.getParameter("codigoTres")!= null){
 					<label>Total de iva</label>
 				</div>
 				<div>
-					<input type="text" name="totalIva">
+					<input type="text" name="totalIva" value=<%=totalIva %>>
 				</div>
 				<div>
 					<label></label>
@@ -206,7 +213,7 @@ if(request.getParameter("codigoTres")!= null){
 					<label>Total con iva</label>
 				</div>
 				<div>
-					<input type="text" name="total">
+					<input type="text" name="total" value=<%=total %>>
 				</div>
 			</div>
 

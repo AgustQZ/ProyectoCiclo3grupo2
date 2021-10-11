@@ -207,6 +207,27 @@ public class Ventas extends HttpServlet {
 
 		
 			}
+			
+			if(request.getParameter("darTotal")!=null) {
+				String nombre = request.getParameter("cliente");
+				String cedula = request.getParameter("cedula");
+				int precioUno = Integer.parseInt(request.getParameter("valorUno"));
+				int precioDos = Integer.parseInt(request.getParameter("precioDos"));
+				int precioTres = Integer.parseInt(request.getParameter("valorTres"));
+				
+				double suma = precioUno+ precioDos+ precioTres;
+				double conIva = suma * (0.19);
+				double total = suma + conIva;
+				VentasDTO ventas = new VentasDTO(nombre,cedula,conIva,suma,total);
+				VentasDAO ventasDAO = new VentasDAO();
+				ventasDAO.crearVenta(ventas);
+				VentasDTO venta = ventasDAO.buscarVenta(cedula);
+				String codigo = venta.getCodigoVentas();
+			
+				
+				response.sendRedirect("Ventas.jsp?totalVenta="+suma+"&&totalIva="+conIva + "&&total="+ total+ "&&consecutivo="+ codigo);
+				
+			}
 	}
 
 }

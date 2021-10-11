@@ -5,20 +5,40 @@ public class VentasDTO {
 	String codigoVentas;
 	String NombreCliente;
 	String cedulaCliente;
-	int ivaVenta;	// iva de la venta
-	int totalVenta;// total sin iva
-	int valorVenta; // total con iva
+	double ivaVenta;	// iva de la venta
+	double totalVenta;// total sin iva
+	double valorVenta; // total con iva
 	
-	public VentasDTO(int iva, int sinIva, int total) {
+	
+	
+	
+	
+
+	public VentasDTO(String nombreCliente, String cedulaCliente, double ivaVenta,
+			double totalVenta, double valorVenta) {
 		
-		this.ivaVenta = iva;
-		this.totalVenta = sinIva;
-		this.valorVenta = total;
 		
-		
+		this.NombreCliente = nombreCliente;
+		this.cedulaCliente = cedulaCliente;
+		this.ivaVenta = ivaVenta;
+		this.totalVenta = totalVenta;
+		this.valorVenta = valorVenta;
 	}
 	
 	
+
+	public VentasDTO(String codigoVentas, String nombreCliente, String cedulaCliente, double ivaVenta,
+			double totalVenta, double valorVenta) {
+		
+		this.codigoVentas = codigoVentas;
+		this.NombreCliente = nombreCliente;
+		this.cedulaCliente = cedulaCliente;
+		this.ivaVenta = ivaVenta;
+		this.totalVenta = totalVenta;
+		this.valorVenta = valorVenta;
+	}
+
+
 
 	public String getNombreCliente() {
 		return NombreCliente;
@@ -36,7 +56,7 @@ public class VentasDTO {
 		this.cedulaCliente = cedulaCliente;
 	}
 
-	public int getIvaVenta() {
+	public double getIvaVenta() {
 		return ivaVenta;
 	}
 
@@ -44,7 +64,7 @@ public class VentasDTO {
 		this.ivaVenta = ivaVenta;
 	}
 
-	public int getTotalVenta() {
+	public double getTotalVenta() {
 		return totalVenta;
 	}
 
@@ -52,12 +72,24 @@ public class VentasDTO {
 		this.totalVenta = totalVenta;
 	}
 
-	public int getValorVenta() {
+	public double getValorVenta() {
 		return valorVenta;
 	}
 
 	public void setValorVenta(int valorVenta) {
 		this.valorVenta = valorVenta;
+	}
+
+
+
+	public String getCodigoVentas() {
+		return codigoVentas;
+	}
+
+
+
+	public void setCodigoVentas(String codigoVentas) {
+		this.codigoVentas = codigoVentas;
 	}
 	
 	
