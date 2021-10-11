@@ -53,7 +53,7 @@ public class ClienteDAO {
 	public ClienteDTO consultarCliente(String cedula) {
 		ClienteDTO cliente = null;
 		
-		String buscar = "select * from clientes where cedula_clientes=?";
+		String buscar = "select * from clientes where cedula_cliente=?";
 			try {
 				re= conect.prepareStatement(buscar);
 				re.setString(1, cedula);

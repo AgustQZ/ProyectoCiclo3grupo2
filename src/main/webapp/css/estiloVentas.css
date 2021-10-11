@@ -1,0 +1,25 @@
+@charset "ISO-8859-1";
+
+.contenedor{
+	margin: 25px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+}
+
+.contenedor label{
+	
+	margin: 25px;
+}
+
+.contenedor input{
+	
+	margin: 25px;
+}
+
+.contenedorProductos{
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr ;
+}
+
